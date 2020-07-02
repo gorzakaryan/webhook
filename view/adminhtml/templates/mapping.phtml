@@ -1,0 +1,90 @@
+<?php
+/**
+ * @var $block \CrmPerks\Webhook\Block\Adminhtml\Webhook\Mapping
+ */
+?>
+<?php $staticValues = $block->getStaticValues(); ?>
+
+<div id="crmperksMapping">
+<?php if ($block->getFields()): ?>
+    <div class="admin__fieldset-wrapper-content _hide" id="mapping-content">
+        <fieldset class="admin__fieldset">
+            <div class="admin__field">
+                <div class="admin__field-control">
+                    <div class="admin__control-table-wrapper">
+                        <table class="admin__dynamic-rows admin__control-table">
+                            <thead>
+                            <tr>
+                                <th><span><?php echo __("Value") ?></span></th>
+                                <th><span><?php echo __("Field Name") ?></span></th>
+                                <th><span><?php echo __("Action") ?></span></th>
+                            </tr>
+                            </thead>
+                            <tbody class="admin_tbody__dynamic-rows admin_tbody__dynamic-rows_mapping">
+                                <?php $i = 1 ?>
+                                <?php foreach($block->getFields() as $key => $value): ?>
+                                    <tr data-row-index="<?php echo $i; ?>" class="data-row">
+                                        <td>
+                                            <div class="admin__field">
+                                                <div class="admin__field-control">
+                                                    <select id="control-select_<?php echo $i ?>" class="admin__control-select admin__control-select_options select_mapping_<?php echo $i ?>" name="mapping[valuesDynamic][]">
+                                                        <?php foreach ($block->getAttributes() as $attribute): ?>
+                                                        <?php if($attribute["title"]): ?>
+                                                            <option <?php echo $attribute["name"] == $key ? "selected" : "" ?> value="<?php echo $attribute["name"]; ?>"><?php echo $attribute["title"]; ?></option>
+                                                        <?php endif ?>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                    <span class="admin__control-or"> <?php echo __("or"); ?> </span>
+                                                    <input type="text" placeholder="Static Value" name="mapping[valuesStatic][]" value="<?php echo $staticValues ? $staticValues[$key] : "" ?>" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="admin__field">
+                                                <div class="admin__field-control">
+                                                    <input class="admin__control-text" value="<?php echo $value;  ?>" type="text" name="mapping[names][]" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="data-grid-actions-cell">
+                                            <button data-delete-row-index="<?php echo $i; $i++; ?>" class="action-delete action-delete_mapping">
+                                                <span></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                            <tfoot class="admin_tfoot__dynamic-rows">
+                                <tr>
+                                    <td colspan="8">
+                                        <button type="button" class="add-row_dynamic-rows add-row_dynamic-rows_mapping">
+                                            <span>Add Row</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+<?php else: ?>
+<div class="crmPerks_admin__mapping-container"><p class="message message-warning warning"><?php echo "Please select the event first!"; ?></p></div>
+<?php endif; ?>
+</div>
+<script>
+    require([
+        "mage/url"
+    ], function(urlBuilder) {
+        return urlBuilder.setBaseUrl("<?php echo $block->getAdminBaseUrl();?>");
+    });
+</script>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "CrmPerks_Webhook/js/mapping": {},
+                "CrmPerks_Webhook/js/crmperks": {}
+            }
+        }
+</script>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Hooks Manager</title>
+        <css src="CrmPerks_Webhook::css/crmperks.css" />
+        <script src="CrmPerks_Webhook::js/crmperks.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="crmperks_webhook_listing"/>
+        </referenceContainer>
+    </body>
+</page>

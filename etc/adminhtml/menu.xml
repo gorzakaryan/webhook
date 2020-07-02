@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="CrmPerks_Webhook::webhook" title="CRM Perks" module="CrmPerks_Webhook" sortOrder="50" resource="CrmPerks_Webhook::webhook"/>
+        <add id="CrmPerks_Webhook::configuration" title="Configuration" module="CrmPerks_Webhook" sortOrder="5" parent="CrmPerks_Webhook::webhook" action="adminhtml/system_config/edit/section/crmperks_hook" resource="CrmPerks_Webhook::configuration"/>
+        <add id="CrmPerks_Webhook::hook" title="Hooks Manager" module="CrmPerks_Webhook" sortOrder="10" action="crmperks_hook/index/index" parent="CrmPerks_Webhook::webhook" resource="CrmPerks_Webhook::hook"/>
+        <add id="CrmPerks_Webhook::new" title="Add Webhook" module="CrmPerks_Webhook" sortOrder="20" action="crmperks_hook/index/new" parent="CrmPerks_Webhook::webhook" resource="CrmPerks_Webhook::new"/>
+        <add id="CrmPerks_Webhook::logs" title="Logs" module="CrmPerks_Webhook" sortOrder="30" action="crmperks_hook/logs/index" parent="CrmPerks_Webhook::webhook" resource="CrmPerks_Webhook::logs"/>
+    </menu>
+</config>

@@ -1,0 +1,72 @@
+<?php
+/**
+ * @var $block \CrmPerks\Webhook\Block\Adminhtml\Webhook\Renderer\Headers
+ */
+?>
+<?php
+$element = $block->getElement();
+$getHeaders = $block->getHeadersFields();
+?>
+<div class="admin__fieldset-wrapper-content _hide" id="headers-content">
+    <?php echo $element->getLabelHtml("", $element->getScopeLabel()) ?>
+    <fieldset class="admin__fieldset">
+        <div class="admin__field">
+            <div class="admin__field-control admin__field-control_headers">
+                <div class="admin__control-table-wrapper">
+                    <table class="admin__dynamic-rows admin__control-table">
+                        <thead>
+                            <tr>
+                                <th><span><?php echo __("Name") ?></span></th>
+                                <th><span><?php echo __("Value") ?></span></th>
+                                <th><span><?php echo __("Action") ?></span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="admin_tbody__dynamic-rows admin_tbody__dynamic-rows_headers">
+                        <?php $i = 1 ?>
+                        <?php foreach ($getHeaders as $key => $value): ?>
+                            <tr data-row-head-index="<?php echo $i; ?>" class="data-row">
+                                <td>
+                                    <div class="admin__field">
+                                        <div class="admin__field-control">
+                                                <input class="admin__control-text_name" value="<?php echo $key; ?>" type="text" name="headers[valuesName][]">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="admin__field">
+                                        <div class="admin__field-control">
+                                            <input class="admin__control-text_value" value="<?php echo $value; ?>" type="text" name="headers[valuesValue][]">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="data-grid-actions-cell">
+                                    <button data-delete-row-head-index="<?php echo $i; $i++; ?>" class="action-delete action-delete_headers">
+                                        <span></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                        <tfoot class="admin_tfoot__dynamic-rows">
+                        <tr>
+                            <td colspan="8">
+                                <button type="button" class="add-row_dynamic-rows add-row_dynamic-rows_headers">
+                                    <span>Add</span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "CrmPerks_Webhook/js/mapping": {},
+                "CrmPerks_Webhook/js/crmperks": {}
+            }
+        }
+</script>

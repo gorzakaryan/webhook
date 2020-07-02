@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="order_cancel_after">
+        <observer name="crmperks_order_canceled" instance="CrmPerks\Webhook\Observer\AfterCancelOrder"/>
+    </event>
+    <event name="sales_order_save_after">
+        <observer name="crmperks_new_order" instance="CrmPerks\Webhook\Observer\AfterSaveOrder"/>
+    </event>
+
+    <event name="sales_order_invoice_save_after">
+        <observer name="crmperks_new_invoice" instance="CrmPerks\Webhook\Observer\AfterSaveInvoice"/>
+    </event>
+    <event name="sales_order_shipment_save_after">
+        <observer name="crmperks_new_shipment" instance="CrmPerks\Webhook\Observer\AfterSaveShipment"/>
+    </event>
+
+    <event name="customer_register_success">
+        <observer name="crmperks_new_customer" instance="CrmPerks\Webhook\Observer\RegisterCustomer" />
+    </event>
+    <event name="customer_save_after">
+        <observer name="crmperks_save_customer" instance="CrmPerks\Webhook\Observer\AfterSaveCustomer"/>
+    </event>
+    <event name="customer_delete_after">
+        <observer name="crmperks_delete_customer" instance="CrmPerks\Webhook\Observer\AfterDeleteCustomer"/>
+    </event>
+    <event name="customer_login">
+        <observer name="crmperks_login_customer" instance="CrmPerks\Webhook\Observer\LoginCustomer"/>
+    </event>
+
+    <event name="catalog_product_save_after">
+        <observer name="crmperks_product_save_after" instance="CrmPerks\Webhook\Observer\AfterSaveProduct"/>
+    </event>
+    <event name="catalog_product_delete_after_done">
+        <observer name="crmperks_delete_product" instance="CrmPerks\Webhook\Observer\AfterDeleteProduct" />
+    </event>
+
+    <event name="catalog_category_save_after">
+        <observer name="crmperks_category_save_after" instance="CrmPerks\Webhook\Observer\AfterSaveCategory"/>
+    </event>
+    <event name="catalog_category_delete_after_done">
+        <observer name="crmperks_delete_category" instance="CrmPerks\Webhook\Observer\AfterDeleteCategory"/>
+    </event>
+
+    <event name="checkout_cart_save_after">
+        <observer name="crmperks_cart_save_after" instance="CrmPerks\Webhook\Observer\AfterSaveCart"/>
+    </event>
+</config>

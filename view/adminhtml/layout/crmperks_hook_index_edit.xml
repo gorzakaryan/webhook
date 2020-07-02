@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Add Webhook</title>
+        <css src="CrmPerks_Webhook::css/mapping.css" />
+        <css src="CrmPerks_Webhook::css/crmperks.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="CrmPerks\Webhook\Block\Adminhtml\Webhook\Edit" name="webhook_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="CrmPerks\Webhook\Block\Adminhtml\Webhook\Edit\Tabs" name="webhook_tabs" />
+        </referenceContainer>
+    </body>
+</page>

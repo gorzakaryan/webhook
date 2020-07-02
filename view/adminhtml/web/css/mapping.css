@@ -1,0 +1,25 @@
+.field-mapping .admin__field-control {
+    margin-left: unset !important;
+}
+
+.field-mapping .admin__fieldset > .admin__field > .admin__field-control {
+    width: 100% !important;
+}
+
+.admin__field-control .admin__control-or {
+    margin: 0 5px;
+}
+
+#mapping_fieldset .admin__field-control.control {
+    width: 100%;
+}
+
+#headers-content .admin__field-control_headers {
+    width: 80% !important;
+    margin-left: unset !important;
+}
+
+.crmperks-hook-index-edit #base_fieldset > label,
+.crmperks_hook-index-edit #base_fieldset > label {
+    display: none !important;
+}
